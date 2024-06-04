@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>COTIZACIÓN DE EVENTO</title>
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+        }
+        
+        table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px hsla(260, 65%, 5%, 0);
+        }
+        
+        th, td {
+            border: 1px solid #db0ca7;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            padding: 8px;
+        }
+        
+        h1, h2 {
+            margin: 0;
+            padding: 10px 0;
+        }
+        
+        @media (max-width: 600px) {
+            th, td {
+                font-size: 14px;
+                padding: 6px;
+            }
+        
+            input[type="text"] {
+                padding: 6px;
+            }
+        
+            table {
+                width: 100%;
+            }
+        }
+
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #detalles-cotizacion {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        #detalles-cotizacion th,
+        #detalles-cotizacion td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        #detalles-cotizacion th {
+            background-color: #f2f2f2;
+        }
+        #detalles-cotizacion img {
+            display: block;
+            margin: auto;
+            width: 80%; /* Ajusta el tamaño de la imagen según sea necesario */
+            margin-top: 20px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #af4c9e;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #a04582;
+        }
+
+
+
+
+        .tabla-gastos-eventos {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    
+        .tabla-gastos-eventos th, .tabla-gastos-eventos td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .tabla-gastos-eventos th {
+            background-color: #af4c91;
+            color: white;
+        }
+    
+        .tabla-gastos-eventos tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+        .tabla-gastos-eventos input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        .tabla-gastos-eventos td {
+            font-size: 14px;
+            color: #333;
+        }
+    
+        .tabla-gastos-eventos th {
+            font-size: 16px;
+        }
+    
+        .tabla-gastos-eventos tr:hover {
+            background-color: #ddd;
+        }
+
+
+
+
+
+        .tabla-fijos {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+    
+        .tabla-fijos th, .tabla-fijos td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .tabla-fijos th {
+            background-color: #af4ca2;
+            color: white;
+        }
+    
+        .tabla-fijos tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+        .tabla-fijos input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        .tabla-fijos td {
+            font-size: 14px;
+            color: #333;
+        }
+    
+        .tabla-fijos th {
+            font-size: 16px;
+        }
+    
+        .tabla-fijos tr:hover {
+            background-color: #ddd;
+        }
+    
+        h2 {
+            font-family: Arial, sans-serif;
+            color: #af4c91;
+        }
+
+
+
+
+
+        .tabla-mano-obra {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+    
+        .tabla-mano-obra th, .tabla-mano-obra td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .tabla-mano-obra th {
+            background-color: #af4ca7;
+            color: white;
+        }
+    
+        .tabla-mano-obra tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+        .tabla-mano-obra input[type="text"], .tabla-mano-obra input[type="number"] {
+            width: calc(100% - 24px);
+            padding: 8px;
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        .tabla-mano-obra td {
+            font-size: 14px;
+            color: #333;
+        }
+    
+        .tabla-mano-obra th {
+            font-size: 16px;
+        }
+    
+        .tabla-mano-obra tr:hover {
+            background-color: #ddd;
+        }
+    
+        h2 {
+            font-family: Arial, sans-serif;
+            color: #af4c99;
+        }
+
+
+
+
+
+
+
+        .tabla-transportacion {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+    
+        .tabla-transportacion th, .tabla-transportacion td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .tabla-transportacion th {
+            background-color: #af4c96;
+            color: white;
+        }
+    
+        .tabla-transportacion tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+        .tabla-transportacion input[type="text"], .tabla-transportacion input[type="number"] {
+            width: calc(100% - 24px);
+            padding: 8px;
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        .tabla-transportacion td {
+            font-size: 14px;
+            color: #333;
+        }
+    
+        .tabla-transportacion th {
+            font-size: 16px;
+        }
+    
+        .tabla-transportacion tr:hover {
+            background-color: #ddd;
+        }
+    
+        h2 {
+            font-family: Arial, sans-serif;
+            color: #af4ca2;
+        }
+
+
+
+
+        .tabla-ganancia {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+    
+        .tabla-ganancia th, .tabla-ganancia td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .tabla-ganancia th {
+            background-color: #af4ca7;
+            color: white;
+        }
+    
+        .tabla-ganancia tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+        .tabla-ganancia input[type="text"], .tabla-ganancia input[type="number"] {
+            width: calc(100% - 24px);
+            padding: 8px;
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        .tabla-ganancia td {
+            font-size: 14px;
+            color: #333;
+        }
+    
+        .tabla-ganancia th {
+            font-size: 16px;
+        }
+    
+        .tabla-ganancia tr:hover {
+            background-color: #ddd;
+        }
+    
+        h2 {
+            font-family: Arial, sans-serif;
+            color: #af4c99;
+        }
+
+
+
+
+
+        .tabla-calculo-guirnalda {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+        }
+    
+        .tabla-calculo-guirnalda th, .tabla-calculo-guirnalda td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    
+        .tabla-calculo-guirnalda th {
+            background-color: #af4c96;
+            color: white;
+        }
+    
+        .tabla-calculo-guirnalda tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    
+        .tabla-calculo-guirnalda input[type="text"], .tabla-calculo-guirnalda input[type="number"] {
+            width: calc(100% - 24px);
+            padding: 8px;
+            margin: 4px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    
+        .tabla-calculo-guirnalda td {
+            font-size: 14px;
+            color: #333;
+        }
+    
+        .tabla-calculo-guirnalda th {
+            font-size: 16px;
+        }
+    
+        .tabla-calculo-guirnalda tr:hover {
+            background-color: #ddd;
+        }
+    
+        h2 {
+            font-family: Arial, sans-serif;
+            color: #af4ca2;
+        }
+
+
+
+
+
+
+        
+        
+    </style>
+</head>
+<body>
+    <h1 style="font-size: 25px; background: linear-gradient(45deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #9400D3); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">COTIZACIÓN DE EVENTO</h1>
+
+    <table class="tabla-gastos-eventos">
+        <thead>
+            <tr>
+                <th id="th-gastos">Gastos</th>
+                <th id="th-precios-15">Apl. Precios a 15 eventos</th>
+                <th id="th-precio-evento">Apl. Precio evento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="td-gastos-guirnalda">Guirnalda</td>
+                <td id="td-precios-15-guirnalda"><input type="text" id="input-precios-15-guirnalda" inputmode="numeric" pattern="[0-9]*" value=""></td>
+                <td id="td-precio-evento-guirnalda"><input type="text" id="input-precio-evento-guirnalda"inputmode="numeric" pattern="[0-9]*" value="$650.00"></td>
+            </tr>
+            <tr>
+                <td id="td-gastos-lona">Lona</td>
+                <td id="td-precios-15-lona"><input type="text" id="input-precios-15-lona"inputmode="numeric" pattern="[0-9]*" value=""></td>
+                <td id="td-precio-evento-lona"><input type="text" id="input-precio-evento-lona"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-gastos-vinil">Vinil</td>
+                <td id="td-precios-15-vinil"><input type="text" id="input-precios-15-vinil"inputmode="numeric" pattern="[0-9]*" value=""></td>
+                <td id="td-precio-evento-vinil"><input type="text" id="input-precio-evento-vinil"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-gastos-figuras">Figuras impresas</td>
+                <td id="td-precios-15-figuras"><input type="text" id="input-precios-15-figuras"inputmode="numeric" pattern="[0-9]*" value=""></td>
+                <td id="td-precio-evento-figuras"><input type="text" id="input-precio-evento-figuras"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-gastos-abrillantador">Abrillantador</td>
+                <td id="td-precios-15-abrillantador"><input type="text" id="input-precios-15-abrillantador"inputmode="numeric" pattern="[0-9]*" value="$50.00"></td>
+                <td id="td-precio-evento-abrillantador"><input type="text" id="input-precio-evento-abrillantador"inputmode="numeric" pattern="[0-9]*" value="$50.00"></td>
+            </tr>
+            <tr>
+                <td id="td-gastos-hilo">Hilo</td>
+                <td id="td-precios-15-hilo"><input type="text" id="input-precios-15-hilo"inputmode="numeric" pattern="[0-9]*" value="$3.33"></td>
+                <td id="td-precio-evento-hilo"><input type="text" id="input-precio-evento-hilo"inputmode="numeric" pattern="[0-9]*" value="$3.33"></td>
+            </tr>
+            <tr>
+                <td id="td-gastos-otros">Otros</td>
+                <td id="td-precios-15-otros"><input type="text" id="input-precios-15-otros"inputmode="numeric" pattern="[0-9]*" value=""></td>
+                <td id="td-precio-evento-otros"><input type="text" id="input-precio-evento-otros"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+
+            
+        
+            <tr>
+                <td id="td-renta-mampara-arco-1x2m">Mampara arco 1x2m</td>
+                <td id="td-precios-15-mampara-arco-1x2m"><input type="text" id="input-precios-15-mampara-arco-1x2m"inputmode="numeric" pattern="[0-9]*" value="$56.67"></td>
+                <td id="td-precio-evento-mampara-arco-1x2m"><input type="text" id="input-precio-evento-mampara-arco-1x2m"inputmode="numeric" pattern="[0-9]*" value="$56.67"></td>
+            </tr>
+            <tr>
+                <td id="td-renta-mampara-arco-1x1.7m">Mampara arco 1x1.7m</td>
+                <td id="td-precios-15-mampara-arco-1x1.7m"><input type="text" id="input-precios-15-mampara-arco-1x1.7m"inputmode="numeric" pattern="[0-9]*" value="$56.67"></td>
+                <td id="td-precio-evento-mampara-arco-1x1.7m"><input type="text" id="input-precio-evento-mampara-arco-1x1.7m"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-mampara-arco-hueco-1.85m">Mampara arco hueco 1.85m</td>
+                <td id="td-precios-15-mampara-arco-hueco-1.85m"><input type="text" id="input-precios-15-mampara-arco-hueco-1.85m"inputmode="numeric" pattern="[0-9]*" value="$56.67"></td>
+                <td id="td-precio-evento-mampara-arco-hueco-1.85m"><input type="text" id="input-precio-evento-mampara-arco-hueco-1.85m"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-aro-metalico">Aro metálico</td>
+                <td id="td-precios-15-aro-metalico"><input type="text" id="input-precios-15-aro-metalico"inputmode="numeric" pattern="[0-9]*" value="$100.00"></td>
+                <td id="td-precio-evento-aro-metalico"><input type="text" id="input-precio-evento-aro-metalico"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-base-metalica-1.5x2.10m">Base metálica 1.5x2.10m</td>
+                <td id="td-precios-15-base-metalica-1.5x2.10m"><input type="text" id="input-precios-15-base-metalica-1.5x2.10m"inputmode="numeric" pattern="[0-9]*" value="$100.00"></td>
+                <td id="td-precio-evento-base-metalica-1.5x2.10m"><input type="text" id="input-precio-evento-base-metalica-1.5x2.10m"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-shimmerwall">Shimmerwall</td>
+                <td id="td-precios-15-shimmerwall"><input type="text" id="input-precios-15-shimmerwall"inputmode="numeric" pattern="[0-9]*" value="$140.00"></td>
+                <td id="td-precio-evento-shimmerwall"><input type="text" id="input-precio-evento-shimmerwall"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-pared-follaje">Pared Follaje</td>
+                <td id="td-precios-15-pared-follaje"><input type="text" id="input-precios-15-pared-follaje"inputmode="numeric" pattern="[0-9]*" value="$66.67"></td>
+                <td id="td-precio-evento-pared-follaje"><input type="text" id="input-precio-evento-pared-follaje"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-flores-follaje">Flores Follaje</td>
+                <td id="td-precios-15-flores-follaje"><input type="text" id="input-precios-15-flores-follaje"inputmode="numeric" pattern="[0-9]*" value="$40.00"></td>
+                <td id="td-precio-evento-flores-follaje"><input type="text" id="input-precio-evento-flores-follaje"inputmode="numeric" pattern="[0-9]*" value="$40.00"></td>
+            </tr>
+            <tr>
+                <td id="td-renta-cilindro-pastel-1m-largo">Cilindro pastel 1m largo</td>
+                <td id="td-precios-15-cilindro-pastel-1m-largo"><input type="text" id="input-precios-15-cilindro-pastel-1m-largo"inputmode="numeric" pattern="[0-9]*" value="$33.33"></td>
+                <td id="td-precio-evento-cilindro-pastel-1m-largo"><input type="text" id="input-precio-evento-cilindro-pastel-1m-largo"inputmode="numeric" pattern="[0-9]*" value="$33.33"></td>
+            </tr>
+            <tr>
+                <td id="td-renta-cilindro-mediano-80cm">Cilindro mediano 80cm</td>
+                <td id="td-precios-15-cilindro-mediano-80cm"><input type="text" id="input-precios-15-cilindro-mediano-80cm"inputmode="numeric" pattern="[0-9]*" value="$33.33"></td>
+                <td id="td-precio-evento-cilindro-mediano-80cm"><input type="text" id="input-precio-evento-cilindro-mediano-80cm"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            
+            <tr>
+                <td id="td-renta-cilindro-pequeno-60cm">Cilindro pequeño 60 cm</td>
+                <td id="td-precios-15-cilindro-pequeno-60cm"><input type="text" id="input-precios-15-cilindro-pequeno-60cm"inputmode="numeric" pattern="[0-9]*" value="$33.33"></td>
+                <td id="td-precio-evento-cilindro-pequeno-60cm"><input type="text" id="input-precio-evento-cilindro-pequeno-60cm"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-candybar">Candybar</td>
+                <td id="td-precios-15-candybar"><input type="text" id="input-precios-15-candybar"inputmode="numeric" pattern="[0-9]*" value="$100.00"></td>
+                <td id="td-precio-evento-candybar"><input type="text" id="input-precio-evento-candybar"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-mesas">Mesas</td>
+                <td id="td-precios-15-mesas"><input type="text" id="input-precios-15-mesas"inputmode="numeric" pattern="[0-9]*" value="$20.00"></td>
+                <td id="td-precio-evento-mesas"><input type="text" id="input-precio-evento-mesas"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-floreros">Floreros</td>
+                <td id="td-precios-15-floreros"><input type="text" id="input-precios-15-floreros"inputmode="numeric" pattern="[0-9]*" value="$33.33"></td>
+                <td id="td-precio-evento-floreros"><input type="text" id="input-precio-evento-floreros"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-alfombra">Alfombra</td>
+                <td id="td-precios-15-alfombra"><input type="text" id="input-precios-15-alfombra"inputmode="numeric" pattern="[0-9]*" value="$100.00"></td>
+                <td id="td-precio-evento-alfombra"><input type="text" id="input-precio-evento-alfombra"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-letrero-madera">Letrero Madera</td>
+                <td id="td-precios-15-letrero-madera"><input type="text" id="input-precios-15-letrero-madera"inputmode="numeric" pattern="[0-9]*" value="$200.00"></td>
+                <td id="td-precio-evento-letrero-madera"><input type="text" id="input-precio-evento-letrero-madera"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td id="td-renta-letrero-led">Letrero Led</td>
+                <td id="td-precios-15-letrero-led"><input type="text" id="input-precios-15-letrero-led"inputmode="numeric" pattern="[0-9]*" value="$66.67"></td>
+                <td id="td-precio-evento-letrero-led"><input type="text" id="input-precio-evento-letrero-led"inputmode="numeric" pattern="[0-9]*" value="$66.67"></td>
+            </tr>
+            <tr>
+                <td id="td-renta-telas-mamparas">Telas para mamparas</td>
+                <td id="td-precios-15-telas-mamparas"><input type="text" id="input-precios-15-telas-mamparas"inputmode="numeric" pattern="[0-9]*" value="$3.33"></td>
+                <td id="td-precio-evento-telas-mamparas"><input type="text" id="input-precio-evento-telas-mamparas"inputmode="numeric" pattern="[0-9]*" value="$3.33"></td>
+            </tr>
+            <tr>
+                <td id="td-renta-letrero-plotter">Letrero Plotter</td>
+                <td id="td-precios-15-letrero-plotter"><input type="text" id="input-precios-15-letrero-plotter"inputmode="numeric" pattern="[0-9]*" value="$33.33"></td>
+                <td id="td-precio-evento-letrero-plotter"><input type="text" id="input-precio-evento-letrero-plotter"inputmode="numeric" pattern="[0-9]*" value=""></td>
+            </tr>
+            <tr>
+                <td colspan="2">TOTAL</td>
+                <td id="total-columna-3"></td>
+            </tr>
+
+        
+            
+
+
+        </tbody>
+    </table>
+
+
+    <h2>Fijos</h2>
+<table class="tabla-fijos">
+    <thead>
+        <tr>
+            <th id="th-fijos">Fijos</th>
+            <th id="th-precios-15-fijos">Apl. Precios a 15 eventos</th>
+            <th id="th-precio-evento-fijos">Apl. Precio evento</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="gastos-fijos">
+            <td id="td-fijos-electricidad">Electricidad</td>
+            <td id="td-precios-15-electricidad"><input type="text" id="input-precios-15-electricidad"inputmode="numeric" pattern="[0-9]*" value="$15.00"></td>
+            <td id="td-precio-evento-electricidad"><input type="text" id="input-precio-evento-electricidad"inputmode="numeric" pattern="[0-9]*" value="$15.00"></td>
+        </tr>
+        <tr class="gastos-fijos">
+            <td id="td-fijos-cinta-doble-cara">Cinta doble cara</td>
+            <td id="td-precios-15-cinta-doble-cara"><input type="text" id="input-precios-15-cinta-doble-cara"inputmode="numeric" pattern="[0-9]*" value="$13.33"></td>
+            <td id="td-precio-evento-cinta-doble-cara"><input type="text" id="input-precio-evento-cinta-doble-cara"inputmode="numeric" pattern="[0-9]*" value="$13.33"></td>
+        </tr>
+        <tr class="gastos-fijos">
+            <td id="td-fijos-calibrador">Calibrador</td>
+            <td id="td-precios-15-calibrador"><input type="text" id="input-precios-15-calibrador"inputmode="numeric" pattern="[0-9]*" value="$6.00"></td>
+            <td id="td-precio-evento-calibrador"><input type="text" id="input-precio-evento-calibrador"inputmode="numeric" pattern="[0-9]*" value="$6.00"></td>
+        </tr>
+        <tr class="gastos-fijos">
+            <td id="td-fijos-bomba-electrica">Bomba eléctrica</td>
+            <td id="td-precios-15-bomba-electrica"><input type="text" id="input-precios-15-bomba-electrica"inputmode="numeric" pattern="[0-9]*" value="$30.00"></td>
+            <td id="td-precio-evento-bomba-electrica"><input type="text" id="input-precio-evento-bomba-electrica"inputmode="numeric" pattern="[0-9]*" value="$30.00"></td>
+        </tr>
+        <tr class="gastos-fijos">
+            <td id="td-fijos-bomba-manual">Bomba manual</td>
+            <td id="td-precios-15-bomba-manual"><input type="text" id="input-precios-15-bomba-manual"inputmode="numeric" pattern="[0-9]*" value="$16.67"></td>
+            <td id="td-precio-evento-bomba-manual"><input type="text" id="input-precio-evento-bomba-manual"inputmode="numeric" pattern="[0-9]*" value="$16.67"></td>
+        </tr>
+        <tr class="gastos-fijos">
+            <td id="td-fijos-tijeras">Tijeras</td>
+            <td id="td-precios-15-tijeras"><input type="text" id="input-precios-15-tijeras"inputmode="numeric" pattern="[0-9]*" value="$1.00"></td>
+            <td id="td-precio-evento-tijeras"><input type="text" id="input-precio-evento-tijeras"inputmode="numeric" pattern="[0-9]*" value="$1.00"></td>
+        </tr>
+    </tbody>
+</table>
+
+<p id="total-fijos">El total Fijos es : $0.00</p>
+
+<p id="total-gastos-f-y-v">Total de gastos F y V: $0.00</p>
+
+
+<p id="mano-de-obra-mas-transportacion">Total de gastos de mano de obra más transportación: $0.00</p>
+
+    
+<p id="total-final">Total final: $0.00</p>
+
+
+
+<p id="resultado-final">Resultado final: $0.00</p>
+
+
+
+<h2>Cálculo mano de obra</h2>
+<table id="table3" class="tabla-mano-obra">
+    <thead>
+        <tr>
+            <th>Concepto</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Trabajadores</td>
+            <td><input type="number" id="trabajadores"inputmode="numeric" pattern="[0-9]*" value="2"></td>
+        </tr>
+        <tr>
+            <td>Salario por hora</td>
+            <td><input type="text" id="salario-por-hora" value="" readonly></td>
+        </tr>
+        <tr>
+            <td>Horas de trabajo</td>
+            <td><input type="number" id="horas-trabajo"inputmode="numeric" pattern="[0-9]*" value="3"></td>
+        </tr>
+        <tr>
+            <td>Total sueldo</td>
+            <td><input type="text" id="total-sueldo" value="$0.00" readonly></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<h2>Cálculo de Transportación</h2>
+<table id="table-transportacion" class="tabla-transportacion">
+    <thead>
+        <tr>
+            <th>Concepto</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Gasolina x km</td>
+            <td><input type="text" id="gasolina-km"inputmode="numeric" pattern="[0-9]*" value="$30.00"></td>
+        </tr>
+        <tr>
+            <td>Kilometros</td>
+            <td><input type="text" id="kilometros"inputmode="numeric" pattern="[0-9]*" value="1"></td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td><input type="text" id="total-transportacion" value="$30.00" readonly></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<h2>Cálculo de Ganancia</h2>
+<table id="table-ganancia" class="tabla-ganancia">
+    <thead>
+        <tr>
+            <th>Concepto</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ganancia por evento</td>
+            <td><input type="text" id="ganancia-evento"inputmode="numeric" pattern="[0-9]*" value="$360.61"></td>
+        </tr>
+        <tr>
+            <td>Total de gastos F y V</td>
+            <td><input type="text" id="total-gastos" value="" readonly></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+<h2>Cálculo de Guirnalda</h2>
+<table id="tabla-calculo-guirnalda" class="tabla-calculo-guirnalda">
+    <thead>
+        <tr>
+            <th>Guirnalda</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Guirnalda 3m</td>
+            <td><input type="text" id="precio-guirnalda-3m"inputmode="numeric" pattern="[0-9]*" value="$650.00"></td>
+        </tr>
+        <tr>
+            <td>Guirnalda 2m</td>
+            <td><input type="text" id="precio-guirnalda-2m"inputmode="numeric" pattern="[0-9]*" value="$435.00"></td>
+        </tr>
+        <tr>
+            <td>Guirnalda 1m</td>
+            <td><input type="text" id="precio-guirnalda-1m"inputmode="numeric" pattern="[0-9]*" value="$220.00"></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div class="container">
+    <div id="logo">
+        <img src="globelia.jpg" alt="Logo" width="200">
+    </div>
+    <h2>Detalles de Cotización</h2>
+    <table id="detalles-cotizacion">
+        <tr>
+            <th>Fecha de Cotización</th>
+            <td><input type="text" id="fecha-cotizacion" value="27-may"></td>
+        </tr>
+        <tr>
+            <th>Nombre del Cliente</th>
+            <td><input type="text" id="nombre-cliente" value="Elia Hernandez"></td>
+        </tr>
+        <tr>
+            <th>Lugar</th>
+            <td><input type="text" id="lugar" value="col. Nuevo Progreso, H. cárdenas Tabasco"></td>
+        </tr>
+        <tr>
+            <th>Teléfono de Contacto</th>
+            <td><input type="text" id="telefono-contacto" value="9371030416"></td>
+        </tr>
+        <tr>
+            <th>Tipo de Evento</th>
+            <td><input type="text" id="tipo-evento" value="Cumpleaños"></td>
+        </tr>
+        <tr>
+            <th>Fecha de Evento</th>
+            <td><input type="text" id="fecha-evento" value="07/06/2024"></td>
+        </tr>
+        <tr>
+            <th>Hora de Montaje</th>
+            <td><input type="text" id="hora-montaje" value="9:00 AM"></td>
+        </tr>
+        <tr>
+            <th>Costo Total</th>
+            <td id="costo-total"> $1,562.64</td>
+        </tr>
+    </table>
+    <button onclick="imprimirTabla()">Imprimir</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+<script>
+    function calcularSumaColumna3() {
+        // Selecciona todos los inputs de la columna 3 en la tabla de eventos
+        const inputs = document.querySelectorAll('table:not(.tabla-fijos) td[id^="td-precio-evento-"] input');
+        let total = 0;
+    
+        inputs.forEach(input => {
+            // Remueve el símbolo de dólar y cualquier espacio en blanco, luego convierte a número
+            const value = parseFloat(input.value.replace('$', '').replace(',', ''));
+            if (!isNaN(value)) {
+                total += value;
+            }
+        });
+    
+        // Inserta el total calculado en la celda correspondiente en la tabla de eventos
+        document.getElementById('total-columna-3').innerText = `$${total.toFixed(2)}`;
+    }
+    
+    function añadirEventosInputs() {
+        // Selecciona todos los inputs de la columna 3 en la tabla de eventos
+        const inputs = document.querySelectorAll('table:not(.tabla-fijos) td[id^="td-precio-evento-"] input');
+        inputs.forEach(input => {
+            input.addEventListener('input', calcularSumaColumna3);
+        });
+    }
+    
+    // Llama a la función para calcular el total y añadir eventos cuando la página se haya cargado
+    window.onload = () => {
+        calcularSumaColumna3();
+        añadirEventosInputs();
+    };
+    
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const salarioPorHora = 248.93 / 8;
+        document.getElementById('salario-por-hora').value = `$${salarioPorHora.toFixed(2)}`;
+    
+        function calcularTotalSueldo() {
+            const trabajadores = parseInt(document.getElementById('trabajadores').value) || 0;
+            const horasTrabajo = parseInt(document.getElementById('horas-trabajo').value) || 0;
+            const totalSueldo = trabajadores * horasTrabajo * salarioPorHora;
+            document.getElementById('total-sueldo').value = `$${totalSueldo.toFixed(2)}`;
+        }
+    
+        // Añadir eventos a los inputs
+        document.getElementById('trabajadores').addEventListener('input', calcularTotalSueldo);
+        document.getElementById('horas-trabajo').addEventListener('input', calcularTotalSueldo);
+    
+        // Calcular el total al cargar la página
+        calcularTotalSueldo();
+    });
+    
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        function calcularTotalTransportacion() {
+            const gasolinaKm = parseFloat(document.getElementById('gasolina-km').value.replace('$', '').replace(',', '')) || 0;
+            const kilometros = parseInt(document.getElementById('kilometros').value) || 0;
+            const totalTransportacion = gasolinaKm * kilometros;
+            document.getElementById('total-transportacion').value = `$${totalTransportacion.toFixed(2)}`;
+        }
+    
+        // Añadir eventos a los inputs
+        document.getElementById('gasolina-km').addEventListener('input', calcularTotalTransportacion);
+        document.getElementById('kilometros').addEventListener('input', calcularTotalTransportacion);
+    
+        // Calcular el total al cargar la página
+        calcularTotalTransportacion();
+    });
+    
+
+
+    function sumarColumnaTabla(tablaId, columnaIndex) {
+        var total = 0;
+        var table = document.getElementById(tablaId);
+        for (var i = 0; i < table.rows.length; i++) {
+            var cellValue = parseFloat(table.rows[i].cells[columnaIndex].querySelector("input").value.replace("$", ""));
+            if (!isNaN(cellValue)) {
+                total += cellValue;
+            }
+        }
+        return total.toFixed(2);
+    }
+
+    function mostrarResultado() {
+        var totalGastosEventos = sumarColumnaTabla("tabla-gastos-eventos", 2);
+        var totalGastosFijos = sumarColumnaTabla("tabla-fijos", 2);
+        var totalGastos = (parseFloat(totalGastosEventos) + parseFloat(totalGastosFijos)).toFixed(2);
+        document.getElementById("total-gastos").value = "$" + totalGastos;
+    }
+
+
+   
+
+   
+
+    function calcularTotal() {
+        // Obtener todos los elementos de la tercera columna
+        var preciosEvento = document.querySelectorAll('.gastos-fijos td:nth-child(3) input');
+
+        // Inicializar la variable para almacenar el total
+        var total = 0;
+
+        // Iterar sobre los elementos y sumar los valores
+        preciosEvento.forEach(function(input) {
+            // Obtener el valor del input y convertirlo a número eliminando el signo de dólar y cualquier carácter no numérico
+            var valor = parseFloat(input.value.replace(/[^0-9.-]+/g,""));
+            // Sumar el valor al total
+            total += valor;
+        });
+
+        // Actualizar el elemento HTML con el total calculado
+        document.getElementById('total-fijos').textContent = "El total de la columna 3 es: $" + total.toFixed(2);
+    }
+
+    // Llamar a la función calcularTotal cuando la página se cargue y cada vez que cambie el valor de un input
+    window.addEventListener('load', calcularTotal);
+    document.querySelectorAll('.gastos-fijos td:nth-child(3) input').forEach(function(input) {
+        input.addEventListener('input', calcularTotal);
+    });
+    
+    
+    
+    
+
+
+
+
+
+    function calcularTotal() {
+        // Calcular total de la tabla de Gastos de Eventos
+        var preciosEvento = document.querySelectorAll('table:not(.tabla-fijos) td:nth-child(3) input');
+        var totalEventos = calcularSuma(preciosEvento);
+
+        // Calcular total de la tabla de Gastos Fijos
+        var preciosFijos = document.querySelectorAll('.tabla-fijos td:nth-child(3) input');
+        var totalFijos = calcularSuma(preciosFijos);
+
+        // Calcular total de gastos F y V
+        var totalGastosFyV = totalEventos + totalFijos;
+
+        // Actualizar el elemento HTML con el total calculado
+        document.getElementById('total-fijos').textContent = "El total es: $" + totalFijos.toFixed(2);
+        document.getElementById('total-gastos-f-y-v').textContent = "Total de gastos F y V: $" + totalGastosFyV.toFixed(2);
+    }
+
+    function calcularSuma(inputs) {
+        var total = 0;
+
+        inputs.forEach(function(input) {
+            var valor = parseFloat(input.value.replace(/[^0-9.-]+/g,""));
+            if (!isNaN(valor)) {
+                total += valor;
+            }
+        });
+
+        return total;
+    }
+
+    // Llamar a la función calcularTotal cuando la página se cargue y cada vez que cambie el valor de un input
+    window.addEventListener('load', calcularTotal);
+    document.querySelectorAll('table:not(.tabla-fijos) td:nth-child(3) input').forEach(function(input) {
+        input.addEventListener('input', calcularTotal);
+    });
+    document.querySelectorAll('.tabla-fijos td:nth-child(3) input').forEach(function(input) {
+        input.addEventListener('input', calcularTotal);
+    });
+
+
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const salarioPorHora = 248.93 / 8;
+        document.getElementById('salario-por-hora').value = `$${salarioPorHora.toFixed(2)}`;
+    
+        function calcularTotalSueldo() {
+            const trabajadores = parseInt(document.getElementById('trabajadores').value) || 0;
+            const horasTrabajo = parseInt(document.getElementById('horas-trabajo').value) || 0;
+            const totalSueldo = trabajadores * horasTrabajo * salarioPorHora;
+            document.getElementById('total-sueldo').value = `$${totalSueldo.toFixed(2)}`;
+            return totalSueldo;
+        }
+    
+        function calcularTotalTransportacion() {
+            const gasolinaKm = parseFloat(document.getElementById('gasolina-km').value.replace('$', '').replace(',', '')) || 0;
+            const kilometros = parseInt(document.getElementById('kilometros').value) || 0;
+            const totalTransportacion = gasolinaKm * kilometros;
+            document.getElementById('total-transportacion').value = `$${totalTransportacion.toFixed(2)}`;
+            return totalTransportacion;
+        }
+    
+        function actualizarTotal() {
+            const totalSueldo = calcularTotalSueldo();
+            const totalTransportacion = calcularTotalTransportacion();
+            const total = totalSueldo + totalTransportacion;
+            document.getElementById('mano-de-obra-mas-transportacion').textContent = `Total de mano de obra y transportación: $${total.toFixed(2)}`;
+        }
+    
+        // Añadir eventos a los inputs
+        document.getElementById('trabajadores').addEventListener('input', actualizarTotal);
+        document.getElementById('horas-trabajo').addEventListener('input', actualizarTotal);
+        document.getElementById('gasolina-km').addEventListener('input', actualizarTotal);
+        document.getElementById('kilometros').addEventListener('input', actualizarTotal);
+    
+        // Calcular el total al cargar la página
+        actualizarTotal();
+    });
+    
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const salarioPorHora = 248.93 / 8;
+        document.getElementById('salario-por-hora').value = `$${salarioPorHora.toFixed(2)}`;
+    
+        function calcularTotalSueldo() {
+            const trabajadores = parseInt(document.getElementById('trabajadores').value) || 0;
+            const horasTrabajo = parseInt(document.getElementById('horas-trabajo').value) || 0;
+            const totalSueldo = trabajadores * horasTrabajo * salarioPorHora;
+            document.getElementById('total-sueldo').value = `$${totalSueldo.toFixed(2)}`;
+            return totalSueldo;
+        }
+    
+        function calcularTotalTransportacion() {
+            const gasolinaKm = parseFloat(document.getElementById('gasolina-km').value.replace('$', '').replace(',', '')) || 0;
+            const kilometros = parseInt(document.getElementById('kilometros').value) || 0;
+            const totalTransportacion = gasolinaKm * kilometros;
+            document.getElementById('total-transportacion').value = `$${totalTransportacion.toFixed(2)}`;
+            return totalTransportacion;
+        }
+    
+        function actualizarTotalManoDeObraYTransportacion() {
+            const totalSueldo = calcularTotalSueldo();
+            const totalTransportacion = calcularTotalTransportacion();
+            const totalManoDeObraYTransportacion = totalSueldo + totalTransportacion;
+            document.getElementById('mano-de-obra-mas-transportacion').textContent = `Total de mano de obra y transportación: $${totalManoDeObraYTransportacion.toFixed(2)}`;
+            return totalManoDeObraYTransportacion;
+        }
+    
+        function calcularTotalGastosFinal() {
+            const totalGastosFyV = parseFloat(document.getElementById('total-gastos-f-y-v').textContent.replace(/[^0-9.-]+/g, "")) || 0;
+            const totalManoDeObraYTransportacion = actualizarTotalManoDeObraYTransportacion();
+            const totalFinal = totalGastosFyV + totalManoDeObraYTransportacion;
+            document.getElementById('total-final').textContent = `Total final: $${totalFinal.toFixed(2)}`;
+        }
+    
+        // Añadir eventos a los inputs
+        document.getElementById('trabajadores').addEventListener('input', calcularTotalGastosFinal);
+        document.getElementById('horas-trabajo').addEventListener('input', calcularTotalGastosFinal);
+        document.getElementById('gasolina-km').addEventListener('input', calcularTotalGastosFinal);
+        document.getElementById('kilometros').addEventListener('input', calcularTotalGastosFinal);
+    
+        // Calcular el total al cargar la página
+        calcularTotalGastosFinal();
+    });
+
+
+
+
+
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const salarioPorHora = 248.93 / 8;
+        document.getElementById('salario-por-hora').value = `$${salarioPorHora.toFixed(2)}`;
+    
+        function calcularTotalSueldo() {
+            const trabajadores = parseInt(document.getElementById('trabajadores').value) || 0;
+            const horasTrabajo = parseInt(document.getElementById('horas-trabajo').value) || 0;
+            const totalSueldo = trabajadores * horasTrabajo * salarioPorHora;
+            document.getElementById('total-sueldo').value = `$${totalSueldo.toFixed(2)}`;
+            return totalSueldo;
+        }
+    
+        function calcularTotalTransportacion() {
+            const gasolinaKm = parseFloat(document.getElementById('gasolina-km').value.replace('$', '').replace(',', '')) || 0;
+            const kilometros = parseInt(document.getElementById('kilometros').value) || 0;
+            const totalTransportacion = gasolinaKm * kilometros;
+            document.getElementById('total-transportacion').value = `$${totalTransportacion.toFixed(2)}`;
+            return totalTransportacion;
+        }
+    
+        function actualizarTotalManoDeObraYTransportacion() {
+            const totalSueldo = calcularTotalSueldo();
+            const totalTransportacion = calcularTotalTransportacion();
+            const totalManoDeObraYTransportacion = totalSueldo + totalTransportacion;
+            document.getElementById('mano-de-obra-mas-transportacion').textContent = `Total de mano de obra y transportación: $${totalManoDeObraYTransportacion.toFixed(2)}`;
+            return totalManoDeObraYTransportacion;
+        }
+    
+        function calcularTotalGastosFinal() {
+            const totalGastosFyV = parseFloat(document.getElementById('total-gastos-f-y-v').textContent.replace(/[^0-9.-]+/g, "")) || 0;
+            const totalManoDeObraYTransportacion = actualizarTotalManoDeObraYTransportacion();
+            const totalFinal = totalGastosFyV + totalManoDeObraYTransportacion;
+            document.getElementById('total-final').textContent = `Total final: $${totalFinal.toFixed(2)}`;
+            return totalFinal;
+        }
+    
+        function calcularResultadoFinal() {
+            const totalFinal = calcularTotalGastosFinal();
+            const gananciaEvento = parseFloat(document.getElementById('ganancia-evento').value.replace(/[^0-9.-]+/g, "")) || 0;
+            const resultadoFinal = totalFinal + gananciaEvento;
+            document.getElementById('resultado-final').textContent = `Resultado final: $${resultadoFinal.toFixed(2)}`;
+        }
+    
+        // Añadir eventos a los inputs
+        document.getElementById('trabajadores').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('horas-trabajo').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('gasolina-km').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('kilometros').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('ganancia-evento').addEventListener('input', calcularResultadoFinal);
+    
+        // Calcular el total al cargar la página
+        calcularResultadoFinal();
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const salarioPorHora = 248.93 / 8;
+        document.getElementById('salario-por-hora').value = `$${salarioPorHora.toFixed(2)}`;
+    
+        function calcularTotalSueldo() {
+            const trabajadores = parseInt(document.getElementById('trabajadores').value) || 0;
+            const horasTrabajo = parseInt(document.getElementById('horas-trabajo').value) || 0;
+            const totalSueldo = trabajadores * horasTrabajo * salarioPorHora;
+            document.getElementById('total-sueldo').value = `$${totalSueldo.toFixed(2)}`;
+            return totalSueldo;
+        }
+    
+        function calcularTotalTransportacion() {
+            const gasolinaKm = parseFloat(document.getElementById('gasolina-km').value.replace('$', '').replace(',', '')) || 0;
+            const kilometros = parseInt(document.getElementById('kilometros').value) || 0;
+            const totalTransportacion = gasolinaKm * kilometros;
+            document.getElementById('total-transportacion').value = `$${totalTransportacion.toFixed(2)}`;
+            return totalTransportacion;
+        }
+    
+        function actualizarTotalManoDeObraYTransportacion() {
+            const totalSueldo = calcularTotalSueldo();
+            const totalTransportacion = calcularTotalTransportacion();
+            const totalManoDeObraYTransportacion = totalSueldo + totalTransportacion;
+            document.getElementById('mano-de-obra-mas-transportacion').textContent = `Total de mano de obra más transportación: $${totalManoDeObraYTransportacion.toFixed(2)}`;
+            return totalManoDeObraYTransportacion;
+        }
+    
+        function calcularTotalGastosFinal() {
+            const totalGastosFyV = parseFloat(document.getElementById('total-gastos-f-y-v').textContent.replace(/[^0-9.-]+/g, "")) || 0;
+            const totalManoDeObraYTransportacion = actualizarTotalManoDeObraYTransportacion();
+            const totalFinal = totalGastosFyV + totalManoDeObraYTransportacion;
+            document.getElementById('total-final').textContent = `Total final: $${totalFinal.toFixed(2)}`;
+            return totalFinal;
+        }
+    
+        function calcularResultadoFinal() {
+            const totalFinal = calcularTotalGastosFinal();
+            const gananciaEvento = parseFloat(document.getElementById('ganancia-evento').value.replace(/[^0-9.-]+/g, "")) || 0;
+            const resultadoFinal = totalFinal + gananciaEvento;
+            document.getElementById('resultado-final').textContent = `Resultado final: $${resultadoFinal.toFixed(2)}`;
+            document.getElementById('costo-total').textContent = `$${resultadoFinal.toFixed(2)}`;
+        }
+    
+        // Añadir eventos a los inputs
+        document.getElementById('trabajadores').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('horas-trabajo').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('gasolina-km').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('kilometros').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('ganancia-evento').addEventListener('input', calcularResultadoFinal);
+    
+        // Calcular el total al cargar la página
+        calcularResultadoFinal();
+    });
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const salarioPorHora = 248.93 / 8;
+        document.getElementById('salario-por-hora').value = `$${salarioPorHora.toFixed(2)}`;
+    
+        function calcularTotalSueldo() {
+            const trabajadores = parseInt(document.getElementById('trabajadores').value) || 0;
+            const horasTrabajo = parseInt(document.getElementById('horas-trabajo').value) || 0;
+            const totalSueldo = trabajadores * horasTrabajo * salarioPorHora;
+            document.getElementById('total-sueldo').value = `$${totalSueldo.toFixed(2)}`;
+            return totalSueldo;
+        }
+    
+        function calcularTotalTransportacion() {
+            const gasolinaKm = parseFloat(document.getElementById('gasolina-km').value.replace('$', '').replace(',', '')) || 0;
+            const kilometros = parseInt(document.getElementById('kilometros').value) || 0;
+            const totalTransportacion = gasolinaKm * kilometros;
+            document.getElementById('total-transportacion').value = `$${totalTransportacion.toFixed(2)}`;
+            return totalTransportacion;
+        }
+    
+        function actualizarTotalManoDeObraYTransportacion() {
+            const totalSueldo = calcularTotalSueldo();
+            const totalTransportacion = calcularTotalTransportacion();
+            const totalManoDeObraYTransportacion = totalSueldo + totalTransportacion;
+            document.getElementById('mano-de-obra-mas-transportacion').textContent = `Total de mano de obra más transportación: $${totalManoDeObraYTransportacion.toFixed(2)}`;
+            return totalManoDeObraYTransportacion;
+        }
+    
+        function calcularTotalGastosFinal() {
+            const totalGastosFyV = parseFloat(document.getElementById('total-gastos-f-y-v').textContent.replace(/[^0-9.-]+/g, "")) || 0;
+            const totalManoDeObraYTransportacion = actualizarTotalManoDeObraYTransportacion();
+            const totalFinal = totalGastosFyV + totalManoDeObraYTransportacion;
+            document.getElementById('total-final').textContent = `Total final: $${totalFinal.toFixed(2)}`;
+            return totalFinal;
+        }
+    
+        function calcularResultadoFinal() {
+            const totalFinal = calcularTotalGastosFinal();
+            const gananciaEvento = parseFloat(document.getElementById('ganancia-evento').value.replace(/[^0-9.-]+/g, "")) || 0;
+            const resultadoFinal = totalFinal + gananciaEvento;
+            document.getElementById('resultado-final').textContent = `Resultado final: $${resultadoFinal.toFixed(2)}`;
+            document.getElementById('costo-total').textContent = `$${resultadoFinal.toFixed(2)}`;
+            localStorage.setItem('resultado-final', resultadoFinal.toFixed(2));
+        }
+    
+        function cargarDatos() {
+            const resultadoFinal = localStorage.getItem('resultado-final');
+            if (resultadoFinal) {
+                document.getElementById('resultado-final').textContent = `Resultado final: $${resultadoFinal}`;
+                document.getElementById('costo-total').textContent = `$${resultadoFinal}`;
+            }
+        }
+    
+        // Añadir eventos a los inputs
+        document.getElementById('trabajadores').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('horas-trabajo').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('gasolina-km').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('kilometros').addEventListener('input', calcularResultadoFinal);
+        document.getElementById('ganancia-evento').addEventListener('input', calcularResultadoFinal);
+    
+        // Cargar datos almacenados
+        cargarDatos();
+    
+        // Calcular el total al cargar la página
+        calcularResultadoFinal();
+    });
+    
+
+
+
+
+    function imprimirTabla() {
+        printJS({
+            printable: 'detalles-cotizacion',
+            type: 'html',
+            header: '<div id="logo"><img src="globelia.jpg" alt="Logo" width="200"></div>',
+            css: 'https://printjs-4de6.kxcdn.com/print.min.css',
+            style: `
+            @media print {
+                body {
+                    margin: 0;
+                    padding: 0;
+                    box-shadow: none;
+                    background-color: #fff;
+                }
+                .container {
+                    width: 100%;
+                    margin: 0;
+                    padding: 0;
+                    box-shadow: none;
+                }
+                #logo {
+                    display: block;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+                #logo img {
+                    margin: 0 auto;
+                    max-width: 200px;
+                }
+                table {
+                    width: 100%;
+                    margin: 0;
+                    border-collapse: collapse;
+                }
+                th, td {
+                    padding: 12px;
+                    border: 1px solid #ddd;
+                    text-align: left;
+                }
+                th {
+                    background-color: #4CAF50;
+                    color: white;
+                }
+                button {
+                    display: none;
+                }
+            }
+        `
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+</script>
+
+
+
+
+        
+   
+
+
+
+</body>
+</html>
